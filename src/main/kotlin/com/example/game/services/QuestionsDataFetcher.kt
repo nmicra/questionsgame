@@ -28,24 +28,26 @@ class QuestionsDataFetcher {
         }
     }
 
+    @Serializable
+    private data class QuestionsDbItem(
+        val response_code: Int,
+        val results: List<QuestionModel>
+    )
+
+    @Serializable
+    private data class QuestionModel(
+        val category: String,
+        val correct_answer: String,
+        val difficulty: String,
+        val incorrect_answers: List<String>,
+        val question: String,
+        val type: String
+    )
+
 }
 
 
-@Serializable
-data class QuestionsDbItem(
-    val response_code: Int,
-    val results: List<QuestionModel>
-)
 
-@Serializable
-data class QuestionModel(
-    val category: String,
-    val correct_answer: String,
-    val difficulty: String,
-    val incorrect_answers: List<String>,
-    val question: String,
-    val type: String
-)
 
 
 
